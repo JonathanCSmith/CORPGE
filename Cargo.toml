@@ -1,0 +1,26 @@
+[package]
+name = "CORPGE"
+version = "0.1.0"
+edition = "2021"
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.dev]
+opt-level = 1
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[features]
+default = []
+debug = ["colored", "bevy-inspector-egui"]
+dev = ["bevy/dynamic"]
+
+[dependencies]
+bevy = "0.8.0"  # Engine
+serde = "1.0.142"  # Serialization
+rand = "0.8.5"  # Random
+
+# Extras
+colored = { version = "2.0.0", optional = true }
+bevy-inspector-egui = { version = "0.12.1", optional = true }
+# bevy_editor_pls for an editor type interface
