@@ -1,6 +1,10 @@
 mod loader;
+mod menu;
+mod actions;
 
-use crate::loading::LoadingPlugin;
+use crate::loader::LoaderPlugin;
+use crate::menu::MenuPlugin;
+use crate::actions::ActionsPlugin;
 
 use bevy::app::App;
 #[cfg(debug_assertions)]
@@ -20,7 +24,8 @@ impl Plugin for CORPGEPlugin {
     fn build(&self, app: &mut App) {
         app
             .add_state(GameState::Loading)
-            .add_plugin(LoaderPlugin);
+            .add_plugin(LoaderPlugin)
+            .add_plugin(MenuPlugin);
 
         #[cfg(debug_assertions)]
         {

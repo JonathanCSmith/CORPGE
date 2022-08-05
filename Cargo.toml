@@ -17,6 +17,7 @@ dev = ["bevy/dynamic"]
 
 [dependencies]
 bevy = "0.8.0"  # Engine
+bevy_asset_loader = "0.12.0"  # Engine asset loading
 serde = "1.0.142"  # Serialization
 rand = "0.8.5"  # Random
 

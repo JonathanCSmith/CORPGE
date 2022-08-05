@@ -1,5 +1,7 @@
 // disable console on windows for release builds
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+
+use CORPGE::CORPGEPlugin;
 use bevy::prelude::*;
 
 fn main() {
@@ -10,6 +12,7 @@ fn main() {
             ..Default::default()
         })
         .add_plugins(DefaultPlugins)
-        .add_plugin(CORPEPlugin)
+        .add_plugin(CORPGEPlugin)
+        .add_plugin(ActionsPlugin)
         .run();
 }
