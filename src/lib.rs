@@ -25,7 +25,8 @@ impl Plugin for CORPGEPlugin {
         app
             .add_state(GameState::Loading)
             .add_plugin(LoaderPlugin)
-            .add_plugin(MenuPlugin);
+            .add_plugin(MenuPlugin)
+            .add_plugin(ActionsPlugin);
 
         #[cfg(debug_assertions)]
         {
