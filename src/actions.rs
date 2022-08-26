@@ -8,15 +8,18 @@ impl Plugin for ActionsPlugin {
     fn build(&self, app: &mut App) {
         app
             .init_resource::<Actions>()
-            .add_system_set(
-                SystemSet::on_update(GameState::Playing).with_system(set_movement_actions)
-            );
+            .add_system_set(SystemSet::on_enter(GameState::Playing).with_system(on_playing))
+            .add_system_set(SystemSet::on_update(GameState::Playing).with_system(set_movement_actions));
     }
 }
 
 #[derive(Default)]
 pub struct Actions {
     pub player_movement: Option<Vec2>,
+}
+
+fn on_playing() {
+    println!("Made it into playing!");
 }
 
 fn set_movement_actions(mut actions: ResMut<Actions>, keyboard_input: Res<Input<KeyCode>>) {

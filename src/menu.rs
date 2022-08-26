@@ -35,11 +35,14 @@ fn setup_menu(
     font_assets: Res<FontAssets>,
     button_colors: Res<ButtonColors>
 ) {
+    println!("Made it into menu!");
+
+    commands.spawn_bundle(Camera2dBundle::default());
     commands
         .spawn_bundle(
             ButtonBundle {
                 style: Style {
-                    size: Size::new(Val::Px(1ye20.0), Val::Px(50.0)),
+                    size: Size::new(Val::Px(200.0), Val::Px(50.0)),
                     margin: UiRect::all(Val::Auto),
                     justify_content: JustifyContent::Center,
                     align_items: AlignItems::Center,
